@@ -20,5 +20,23 @@ public class ReverseInteger_7 {
         }
     }
 
+    class SolutionTwo {
+        // 这个方法中将tail在剪切的时候就放到头部
+        // 每次将新的tail放到上一个result的尾部
+        // 节约了存储空间和访问list的时间
+
+        public int reverse(int x) {
+            long result = 0;
+            while (x!=0){
+                int lastDigit = x % 10;
+                result = result * 10 + lastDigit;
+                if (result < -Math.pow(2,31) || result > Math.pow(2,31)-1 )
+                    return 0;
+                x /= 10;
+            }
+            return (int)result;
+        }
+    }
+
 
 }
