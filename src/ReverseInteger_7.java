@@ -1,5 +1,6 @@
 public class ReverseInteger_7 {
     class Solution1 {
+        //第一个解法，用list存储剪切的数字
         public int reverse(int x) {
             List<Integer> digits = new ArrayList<>();
             int length = -1;
