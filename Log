@@ -1,5 +1,8 @@
 //Some notes while reviewing Java language
 
+当考虑到order问题的时候，就要考虑到使用结构来解决问题（Stack， queue）
+使用stack queue array的时候都要考虑到溢出的问题，及时用isEmpty或者其他来检验
+
 1. String and char
  1、获取：
     1.1 字符串中包含的字符数，也就是字符串的长度。
