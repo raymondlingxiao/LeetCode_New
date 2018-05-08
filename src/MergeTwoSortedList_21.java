@@ -7,6 +7,8 @@ public class MergeTwoSortedList_21 {
                 return l1;
             ListNode mergeList;
             if (l1.val<=l2.val){
+                // use l1 as the base
+                // then merge the rest of l1 with l2
                 mergeList = l1;
                 mergeList.next = mergeTwoLists(mergeList.next, l2);
             }
