@@ -7,6 +7,10 @@ isEmpty比empty()快
 
 //字符串处理
 对付string字符串的处理，灵活运用其AscII码进行使用，常利用charToArray,charAt等
+利用map的put特性会返回前一次key的值，可以用于判断是不是一个pattern
 
 //DP相关
 1.关键是找到递归的关系 -198
+
+//Array元素操作相关
+要利用array元素之间的加减的结果的特点，来快速得到最终的结果
