@@ -29,7 +29,7 @@ public class FindDupNum_287 {
                 fast = nums[fast];
             }
 
-            return slow;
+            return slow1;
 
         }
 

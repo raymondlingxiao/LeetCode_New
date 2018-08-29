@@ -22,6 +22,7 @@ public class QueueReconstrucHeight_406 {
                 res.add(people[i][1], new int[]{people[i][0],people[i][1]});
             }
 
+
             return res.toArray(new int[people.length][2]);
 
         }
