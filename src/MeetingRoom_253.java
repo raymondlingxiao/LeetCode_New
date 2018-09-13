@@ -19,6 +19,26 @@ public class MeetingRoom_253 {
             }
             return rooms;
         }
+
+        class Solution2{
+            public int minMeetingRooms(Interval[] intervals) {
+                if(intervals == null || intervals.length == 0) return 0;
+                Arrays.sort(intervals,(a,b)->a.start-b.start);
+                PriorityQueue<Interval> pq = new PriorityQueue<>((a,b)->a.end-b.end);
+                pq.add(intervals[0]);
+
+                for(int i=1; i<intervals.length; i++) {
+                    // 如果start>当前最小的end
+                    //这时不需要add room，取出之前已经用完的房间
+                    if(intervals[i].start >= pq.peek().end) {
+                        pq.poll();
+                    }
+                    // 加入房间的新使用时长
+                    pq.offer(intervals[i]);
+                }
+                return pq.size();
+            }
+        }
     }
 
     public int minMeetingRooms(Interval[] intervals) {
