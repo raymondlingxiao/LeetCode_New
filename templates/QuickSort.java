@@ -1,18 +1,18 @@
 public class QuickSort {
-    private void quickSort(int[]nums, int s, int e){
+    public void quickSort(int[]nums, int s, int e){
         // the exit for every recursion
         if (s>e)
             return;
-        int pivot  = nums[s];
-        int i=s;
-        int j=e;
+
+        int pivot = nums[s];
+        int i=s,j=e;
 
         while (i<j){
-            while (j>i && nums[j] >=pivot){
+            while (i<j && nums[j] >= pivot){
                 j--;
             }
-
             nums[i] = nums[j];
+
             while (i<j && nums[i] < pivot){
                 i++;
             }
@@ -24,6 +24,6 @@ public class QuickSort {
         quickSort(nums,s,i-1);
         quickSort(nums,i+1,e);
 
-
     }
+
 }

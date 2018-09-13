@@ -9,6 +9,21 @@ public class clonePath_131 {
      */
     public class Solution {
 
+        Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+        //Queue<Integer> queue = new LinkedList<>();
+        public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+            if(node == null) return null;
+            if(map.containsKey(node)) return map.get(node);
+            UndirectedGraphNode clone = new UndirectedGraphNode(node.label);
+            map.put(node, clone);
+
+            for(UndirectedGraphNode child : node.neighbors) {
+                clone.neighbors.add(cloneGraph(child));
+            }
+            return clone;
+        }
+
+
         private HashMap<Integer, UndirectedGraphNode> map = new HashMap<>();
         public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
             return clone(node);
