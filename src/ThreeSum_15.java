@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ThreeSum_15 {
     class Solution {
         public List<List<Integer>> threeSum(int[] nums) {
@@ -62,6 +64,47 @@ public class ThreeSum_15 {
                 }
             }
             return result;
+        }
+    }
+}
+
+class Solution3 {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        HashSet<List<Integer>> set = new HashSet<>();
+        // 固定一个数，从这个数的右边开始遍历
+        for (int i=0;i<nums.length;i++){
+            int target = -nums[i];
+            match(target, nums, i, set);
+        }
+        return new ArrayList<List<Integer>>(set);
+    }
+
+    private void match(int target, int[] nums, int ig, Set<List<Integer>> set){
+        // 从右边开始遍历
+        int s = ig+1;
+        int t = nums.length-1;
+        while (s<t){
+            if (nums[s] + nums[t] < target){
+                s++;
+            }
+            else if (nums[s] + nums[t] > target){
+                t--;
+            }
+            // 当出现相等的情况时候，应该考虑可能后续还有组合可能
+            else if (nums[s] + nums[t] == target){
+                set.add(Arrays.asList(nums[ig],nums[s],nums[t]));
+                // 继续往下遍历
+                s++;
+                t--;
+                // 这里需要注意，是拿当前的元素和上一个元素比较，注意下标的处理
+                while (s<t && nums[s-1] == nums[s])
+                    s++;
+                while (s<t && nums[t] == nums[t+1])
+                    t--;
+
+            }
+
         }
     }
 }
