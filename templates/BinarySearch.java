@@ -1,5 +1,5 @@
 public class BinarySearch {
-    public boolean binarySearch(int[] arr, int target{
+    public boolean binarySearch(int[] arr, int target){
         if (arr == null || arr.length == 0)
             return false;
         int s = 0;

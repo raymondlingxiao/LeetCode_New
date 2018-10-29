@@ -35,6 +35,12 @@ public class UnionFind {
         }
         return node;
     }
+    /**
+     *     // ranking, 将小树作为大树的子树
+     *     if (sz[i] < sz[j])
+     *     { id[i] = j; sz[j] += sz[i]; }
+     *     else { id[j] = i; sz[i] += sz[j]; }
+     * */
     // union without ranking
     public void union(int p, int q){
         int pf = find(p);
@@ -42,12 +48,6 @@ public class UnionFind {
         if (pf == qf)
             return;
         index[pf] = qf;
-        /**
-         *     // ranking, 将小树作为大树的子树
-         *     if (sz[i] < sz[j])
-         *     { id[i] = j; sz[j] += sz[i]; }
-         *     else { id[j] = i; sz[i] += sz[j]; }
-         * */
         count--;
     }
 }
